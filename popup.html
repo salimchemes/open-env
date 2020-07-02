@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .btn {
+        display: block;
+        width: 85%;
+        margin: 7px 0;
+        padding: 7px 10px;
+        border: 1px solid transparent;
+        border-radius: 3px;
+        color: #fff;
+        font-size: 12px;
+        text-align: center;
+        white-space: nowrap;
+        cursor: pointer;
+        display: inline-block;
+      }
+      .btn:hover {
+        background-color: #fff;
+        color: #000;
+      }
+
+      .btn-desktop {
+        background-color: black;
+        border-color: black;
+      }
+      .btn-remove {
+        display: inline-block;
+        padding-left: 4px;
+      }
+    </style>
+    <script src="popup.js"></script>
+  </head>
+  <body>
+    <div style="width: 150px; padding: 0 10px;">
+      <h3>
+        Open Env
+      </h3>
+      <div id="environments"></div>
+      <p style="font-size: 18px; text-align: right;">
+        <a id="addEnv" href="/addEnv.html" title="add env"
+          ><img src="images/plus.png" alt="add icon" style="width: 15px;"
+        /></a>
+      </p>
+    </div>
+  </body>
+</html>
