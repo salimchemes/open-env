@@ -14,7 +14,11 @@ document.addEventListener(
 
 function loadEnvironments() {
   const environments = allStorage();
-  if (environments.sort((a, b) => (a.name > b.name ? 1 : -1))) {
+  const environmentsSorted = environments.sort((a, b) =>
+    a.name > b.name ? 1 : -1
+  );
+
+  if (environmentsSorted && environmentsSorted.length) {
     var html = environments
       .map(function (environment) {
         return `<div>
@@ -24,7 +28,7 @@ function loadEnvironments() {
       })
       .join("");
   } else {
-    var html = `<h4>No Environments added yet, click on + to add one</h4>`;
+    var html = `<p>No Environments added yet, click on + to add one</p>`;
   }
 
   document.querySelector("#environments").innerHTML = html;
@@ -42,6 +46,9 @@ function loadEnvironments() {
         let host = pathArray[2];
         let baseUrl = protocol + "//" + host;
         let newFullUrl = fullUrl.replace(baseUrl, environment.envUrl);
+        newFullUrl = newFullUrl.startsWith("http")
+          ? newFullUrl
+          : `https://${newFullUrl}`;
         window.open(newFullUrl, "_blank");
       },
       false
