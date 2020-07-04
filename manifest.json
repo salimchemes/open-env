@@ -3,7 +3,7 @@
   "version": "1.0",
   "description": "Open current url in another environment replacing host url only",
   "manifest_version": 2,
-  "permissions": ["activeTab", "tabs", "storage", "declarativeContent"],
+  "permissions": ["tabs", "storage", "declarativeContent"],
   "browser_action": {
     "default_icon": "images/logo.png",
     "default_popup": "popup.html"
