@@ -1,7 +1,7 @@
 {
   "name": "Open Environment Extension",
   "version": "1.0",
-  "description": "Open current url in another environment!",
+  "description": "Open current url in another environment replacing host url only",
   "manifest_version": 2,
   "permissions": ["activeTab", "tabs", "storage", "declarativeContent"],
   "browser_action": {
@@ -13,5 +13,10 @@
       "matches": ["http://*/*, http:s//*/*"],
       "js": ["addEnv.js"]
     }
-  ]
+  ],
+  "icons": {
+    "16": "images/logo.png",
+    "48": "images/logo.png",
+    "128": "images/logo.png"
+  }
 }
