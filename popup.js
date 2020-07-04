@@ -45,7 +45,12 @@ function loadEnvironments() {
         let protocol = pathArray[0];
         let host = pathArray[2];
         let baseUrl = protocol + "//" + host;
-        let newFullUrl = fullUrl.replace(baseUrl, environment.envUrl);
+        let newFullUrl = fullUrl
+          .toLocaleLowerCase()
+          .replace(
+            baseUrl.toLocaleLowerCase(),
+            environment.envUrl.toLocaleLowerCase()
+          );
         newFullUrl = newFullUrl.startsWith("http")
           ? newFullUrl
           : `https://${newFullUrl}`;

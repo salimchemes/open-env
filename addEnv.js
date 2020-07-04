@@ -5,7 +5,7 @@ document.addEventListener(
     addButton.disabled = true;
     addButton.addEventListener("click", add, false);
     document.getElementById("add").addEventListener("click", add, false);
-    document.getElementById("cancel").addEventListener("click", cancel, false);
+    document.getElementById("back").addEventListener("click", back, false);
     document.getElementById("envName").addEventListener("input", validName);
     document.getElementById("envUrl").addEventListener("input", validURL);
   },
@@ -25,12 +25,14 @@ function add() {
   window.history.back();
 }
 
-function cancel() {
+function back() {
   window.history.back();
 }
 
 function validURL(e) {
   const str = e.target.value;
+  let html = "";
+
   var pattern = new RegExp(
     "^(https?:\\/\\/)?" + // protocol
     "((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|" + // domain name
@@ -42,40 +44,40 @@ function validURL(e) {
   ); // fragment locator
   const isValid = !!pattern.test(str);
   if (!isValid) {
-    const html = `<span id="invalidUrl" style="color: red">Not valid url</span>`;
-    document.querySelector("#validationUrl").innerHTML = html;
-  } else {
-    document.querySelector("#validationUrl").innerHTML = "";
+    html = `<span id="invalidUrl" style="color: red">Not valid url</span>`;
   }
+
+  document.querySelector("#validationUrl").innerHTML = html;
+
   validateAddButton();
 }
 
 function validName(e) {
   const str = e.target.value;
   const isValid = str.trim().length > 0;
+  let html = "";
+
   if (!isValid) {
-    const html = `<span id="invalidName" style="color: red">Name is required</span>`;
-    document.querySelector("#validationName").innerHTML = html;
-  } else {
-    document.querySelector("#validationName").innerHTML = "";
+    html = `<span id="invalidName" style="color: red">Name is required</span>`;
   }
+
+  document.querySelector("#validationName").innerHTML = html;
+
   validateAddButton();
 }
 
 function validateAddButton() {
-  var nameSpan = document.getElementById("invalidName");
-  var hasNameValidation = document
-    .getElementById("validationName")
-    .contains(nameSpan);
-
-  var urlSpan = document.getElementById("invalidUrl");
-  var hasUrlValidation = document
-    .getElementById("validationUrl")
-    .contains(urlSpan);
-
   const envName = document.getElementById("envName").value;
   const envUrl = document.getElementById("envUrl").value;
 
   document.getElementById("add").disabled =
-    hasNameValidation || hasUrlValidation || !envName || !envUrl;
+    validateDivHasErrors("validationName", "invalidName") ||
+    validateDivHasErrors("validationUrl", "invalidUrl") ||
+    !envName ||
+    !envUrl;
+}
+
+function validateDivHasErrors(divName, spanName) {
+  let span = document.getElementById(spanName);
+  return document.getElementById(divName).contains(span);
 }
