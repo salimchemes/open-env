@@ -1,12 +1,15 @@
 {
   "name": "Open Environment Extension",
-  "version": "1.0",
-  "description": "Open current url in another environment replacing host url only",
+  "version": "1.0.1",
+  "description": "Open current url in another tab replacing host url only but keeping the rest of the path. When this is helpful? When working on localhost (or any url) and need to open the exact same url but in another environment",
   "manifest_version": 2,
   "permissions": ["storage"],
   "browser_action": {
-    "default_icon": "images/logo.png",
-    "default_popup": "popup.html"
+    "16": "images/logo.png",
+    "24": "images/logo.png",
+    "32": "images/logo.png",
+    "default_popup": "popup.html",
+    "default_title": "Open Environment"
   },
   "icons": {
     "16": "images/logo.png",
