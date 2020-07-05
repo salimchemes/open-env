@@ -1,9 +1,9 @@
 {
   "name": "Open Environment Extension",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Open current url in another tab replacing host url only but keeping the rest of the path.",
   "manifest_version": 2,
-  "permissions": ["storage"],
+  "permissions": ["storage", "tabs"],
   "browser_action": {
     "16": "images/logo.png",
     "24": "images/logo.png",
