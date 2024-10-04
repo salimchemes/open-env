@@ -4,7 +4,8 @@ var url;
 document.addEventListener(
   "DOMContentLoaded",
   function () {
-    chrome.tabs.getSelected(null, function (tab) {
+    chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
+      const tab = tabs[0]; 
       url = tab.url;
       loadEnvironments();
     });
