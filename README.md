@@ -1,2 +1,2 @@
 # open-env
-Open current url in another environment replacing baseUrl with another one
+Chrome Extenstion to open current url in another environment replacing baseUrl with another one
