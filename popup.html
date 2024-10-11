@@ -2,6 +2,18 @@
 <html>
   <head>
     <style>
+      .container {
+        width: 150px;
+        padding: 0 10px;
+      }
+      
+      .environments {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+
       .btn {
         display: block;
         width: 85%;
@@ -25,26 +37,35 @@
         background-color: black;
         border-color: black;
       }
+
       .header {
         display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
       }
+
+      .add {
+        width: 15px;
+      }
+
+      .remove {
+        margin-left: 4px;
+        width: 15px;
+      }
+
     </style>
     <script src="popup.js"></script>
   </head>
   <body>
-    <div style="width: 150px; padding: 0 10px;">
+    <div class="container">
       <div class="header">
-        <h3>
-          Open Environment
-        </h3>
+        <h3>Open Environment</h3>
         <a id="addEnv" href="/addEnv.html" title="add env"
-            ><img src="images/plus.png" alt="add icon" style="width: 15px;"
-          /></a>
+          ><img src="images/plus.png" alt="add icon" class="add"
+        /></a>
       </div>
-    
+
       <div id="environments"></div>
     </div>
   </body>

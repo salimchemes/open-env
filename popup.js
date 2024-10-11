@@ -22,14 +22,14 @@ function loadEnvironments() {
   if (environmentsSorted && environmentsSorted.length) {
     var html = environments
       .map(function (environment) {
-        return `<div>
+        return `<div class="environment">
         <button type="button" id="${environment.id}" title="${environment.envUrl}" class="btn btn-desktop">Open ${environment.envName}</button>
-        <a id="remove-${environment.id}" href="#" title="remove env"><img src="images/bin.png" alt="remove env" style="margin-left:4px; width: 15px;"/><a>
+        <a id="remove-${environment.id}" href="#" title="remove env"><img src="images/bin.png" alt="remove env" class="remove"/><a>
         </div>`;
       })
       .join("");
   } else {
-    var html = `<p>No Environments added yet, click on + to add one</p>`;
+    var html = `<p>No environments added yet, click on + to add one</p>`;
   }
 
   document.querySelector("#environments").innerHTML = html;

@@ -4,6 +4,14 @@ document.addEventListener(
   "DOMContentLoaded",
   function () {
     const addButton = document.getElementById("add");
+    const style = document.createElement("style");
+    style.innerHTML = `
+    .error {
+      color: red;
+    }
+  `;
+  document.head.appendChild(style);
+
     addButton.disabled = true;
     addButton.addEventListener("click", add, false);
     document.getElementById("add").addEventListener("click", add, false);
@@ -46,7 +54,7 @@ function validURL(e) {
   ); // fragment locator
   const isValid = !!pattern.test(str);
   if (!isValid && !whiteListUrls.some((url) => str.includes(url))) {
-    html = `<span id="invalidUrl" style="color: red">Not valid url</span>`;
+    html = `<span id="invalidUrl" class="error">Not valid url</span>`;
   }
 
   document.querySelector("#validationUrl").innerHTML = html;
@@ -60,7 +68,7 @@ function validName(e) {
   let html = "";
 
   if (!isValid) {
-    html = `<span id="invalidName" style="color: red">Name is required</span>`;
+    html = `<span id="invalidName" class="error" >Name is required</span>`;
   }
 
   document.querySelector("#validationName").innerHTML = html;
