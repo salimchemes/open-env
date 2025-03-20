@@ -16,11 +16,11 @@ document.addEventListener(
 function loadEnvironments() {
   const environments = allStorage();
   const environmentsSorted = environments.sort((a, b) =>
-    a.name > b.name ? 1 : -1
+    a.envName.localeCompare(b.envName, undefined, { sensitivity: "base" })
   );
 
   if (environmentsSorted && environmentsSorted.length) {
-    var html = environments
+    var html = environmentsSorted
       .map(function (environment) {
         return `<div class="environment">
         <button type="button" id="${environment.id}" title="${environment.envUrl}" class="btn btn-desktop">Open ${environment.envName}</button>
